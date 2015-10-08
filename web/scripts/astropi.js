@@ -4,7 +4,8 @@
 /// <reference path="../bower_components/d3/d3.js" />
 
 function onHistoryUpdate(target, json) {
-    $(target).height(($(target).width() / 21) * 9); // resize to wide screen
+    $(target).width($("#history_host").width());
+    $(target).height(($("#history_host").width() / 21) * 9); // resize to wide screen
 
     var margin = { top: 20, right: 20, bottom: 20, left: 60 };
     var width = $(target).width() - margin.left - margin.right;

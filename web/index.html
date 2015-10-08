@@ -21,7 +21,7 @@
         }
         .line {
             fill: none;
-            stroke: #666666;
+            stroke: #808080;
             stroke-width: 1px;
         }
     </style>
@@ -62,20 +62,20 @@
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Temperature History</div>
-            <div class="panel-body" id="history_temperature"></div>
+            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> History</div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#history_temperature" data-toggle="tab">Temperature</a></li>
+                    <li><a href="#history_humidity" data-toggle="tab">Humidity</a></li>
+                    <li><a href="#history_pressure" data-toggle="tab">Pressure</a></li>
+                </ul>
+                <div class="tab-content" id="history_host">
+                    <div role="tabpanel" class="tab-pane active" id="history_temperature"></div>
+                    <div role="tabpanel" class="tab-pane" id="history_humidity"></div>
+                    <div role="tabpanel" class="tab-pane" id="history_pressure"></div>
+                </div>
+            </div>
         </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Humidity History</div>
-            <div class="panel-body" id="history_humidity"></div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Pressure History</div>
-            <div class="panel-body" id="history_pressure"></div>
-        </div>
-
     </div>
 </body>
 </html>
