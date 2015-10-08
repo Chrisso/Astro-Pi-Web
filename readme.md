@@ -1,11 +1,15 @@
+# Astro Pi Web Control
+
 Access Astro Pi functions from a web page.
+
+## Prerequisites
 
 You will need:
 * Raspberry Pi (Version 2 prefered)
 * Sense HAT (Astro Pi sensor board)
 * Webserver with PHP installed (for example nginx)
 
-Gateway
+## Gateway
 
 `python-gateway/astro-pi-cmd.py` is a thin wrapper around the official Sense HAT API to access functions using a single command. Sensor data for web access is expected to be stored in a Sqlite database (`web/data/sensors.sqlite`). Create a cron job to update the database in a useful interval. Use `crontab -e` and add the following line to update every 10 minutes, update paths depending on your configuration.
 
@@ -13,9 +17,9 @@ Gateway
 
 You may check job execution using `grep CRON /var/log/syslog`.
 
-Web
+## Web Frontend
 
-`web` contains all files you need to copy (or link) to your web server directory. To build dependencies:
+`web` contains all files you need to copy (or link) to your web server directory. To get dependencies:
 
 	npm install -g bower
 	bower install
