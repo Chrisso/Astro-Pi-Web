@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/astropi.js"></script>
+    <title>Astro Pi Web</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">Astro Pi Web Controls</a>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span> Sensors</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <p class="text-muted">Temperature</p>
+                            <h1 id="sensor_temperature">n.a.</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <p class="text-muted">Humidity</p>
+                            <h1 id="sensor_humidity">n.a.</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <p class="text-muted">Pressure</p>
+                            <h1 id="sensor_pressure">n.a.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sensor_timestamp" class="text-muted small" style="text-align:right"></div>
+        </div>
+
+    </div>
+</body>
+</html>
