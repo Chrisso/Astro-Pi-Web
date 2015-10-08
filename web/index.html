@@ -9,10 +9,21 @@
     <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
     <script type="text/javascript" src="scripts/astropi.js"></script>
     <title>Astro Pi Web</title>
     <style type="text/css">
         .thumbnail h1 { text-align: center; }
+        .axis path, .axis line {
+            fill: none;
+            stroke: #000000;
+            shape-rendering: crispEdges;
+        }
+        .line {
+            fill: none;
+            stroke: #666666;
+            stroke-width: 1px;
+        }
     </style>
 </head>
 <body>
@@ -46,8 +57,23 @@
                         </div>
                     </div>
                 </div>
+                <div id="sensor_timestamp" class="text-muted small" style="text-align:right"></div>
             </div>
-            <div id="sensor_timestamp" class="text-muted small" style="text-align:right"></div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Temperature History</div>
+            <div class="panel-body" id="history_temperature"></div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Humidity History</div>
+            <div class="panel-body" id="history_humidity"></div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Pressure History</div>
+            <div class="panel-body" id="history_pressure"></div>
         </div>
 
     </div>
