@@ -17,6 +17,14 @@ You will need:
 
 You may check job execution using `grep CRON /var/log/syslog`.
 
+## LED Matrix
+
+PHP also uses the python gateway but requires an additional wrapper to execute this as root. For security reasons the path to the python gateway is hardcoded in `astro-pi-cmd.c`. Edit `args[1]` according to your local configuration then run:
+
+	make
+	sudo chown root astro-pi-cmd
+	sudo chmod u+s astro-pi-cmd
+
 ## Web Frontend
 
 `web` contains all files you need to copy (or link) to your web server directory. To get dependencies:

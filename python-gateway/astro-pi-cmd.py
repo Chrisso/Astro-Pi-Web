@@ -15,6 +15,12 @@ class SenseHatSimulator:
 	
 	def get_pressure(self):
 		return random.uniform(1000, 1050)
+	def clear(self, colour):
+		return True
+	def show_message(self, message, text_colour):
+		return True
+	def set_rotation(self, degrees):
+		return True
 
 def store_values(sh, target):
 	con = sqlite3.connect(target)
@@ -32,6 +38,11 @@ def main():
 	parser.add_argument("-sim", "--simulate", help="simulate sensor data", action="store_true")
 	parser.add_argument("-s", "--store", help="store sensor data to sqlite")
 	parser.add_argument("-q", "--query", help="query specific sensor value and print to console")
+	parser.add_argument("-c", "--clear", help="clear led matrix", action="store_true")
+	parser.add_argument("-m", "--message", help="show message on led matrix")
+	parser.add_argument("-r", "--red", help="red color component on led matrix", type=int)
+	parser.add_argument("-g", "--green", help="green color component on led matrix", type=int)
+	parser.add_argument("-b", "--blue", help="blue color component on led matrix", type=int)
 	args = parser.parse_args()
 	if args.simulate:
 		sense = SenseHatSimulator()
@@ -50,6 +61,18 @@ def main():
 			print sense.get_pressure()
 		else:
 			print "Unknown sensor: {0}".format(args.query)
+	# led matrix
+	if args.clear:
+		r = 0 if args.red is None else args.red
+		g = 0 if args.green is None else args.green
+		b = 0 if args.blue is None else args.blue
+		sense.clear((r, g, b))
+	if args.message is not None:
+		r = 0 if args.red is None else args.red
+		g = 255 if args.green is None else args.green
+		b = 0 if args.blue is None else args.blue
+		sense.set_rotation(180)
+		sense.show_message(args.message, text_colour=(r, g, b))
 
 if __name__ == "__main__":
 	main()
