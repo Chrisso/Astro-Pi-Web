@@ -19,7 +19,7 @@ You may check job execution using `grep CRON /var/log/syslog`.
 
 ## LED Matrix
 
-PHP also uses the python gateway but requires an additional wrapper to execute this as root. For security reasons the path to the python gateway is hardcoded in `astro-pi-cmd.c`. Edit `args[1]` according to your local configuration then run:
+PHP also uses the python gateway but requires an additional wrapper to execute this as root. For security reasons the path to the python gateway is hardcoded in `astro-pi-cmd.c` via `make`. Just run:
 
 	make
 	sudo chown root astro-pi-cmd
