@@ -25,6 +25,8 @@ PHP also uses the python gateway but requires an additional wrapper to execute t
 	sudo chown root astro-pi-cmd
 	sudo chmod u+s astro-pi-cmd
 
+Register the compiled wrapper in PHP: open `web/services/json/ledmatrix.php` and edit the variable `gateway` according to your local configuration.
+
 ## Web Frontend
 
 `web` contains all files you need to copy (or link) to your web server directory. To get dependencies:

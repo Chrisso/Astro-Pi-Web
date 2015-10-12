@@ -28,13 +28,27 @@
 </head>
 <body>
     <div class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <a class="navbar-brand" href="#">Astro Pi Web Controls</a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">Astro Pi Web Controls</span>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" data-link="sensors">Sensors</a></li>
+                    <li><a href="#" data-link="ledmatrix">LED Matrix</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="container">
 
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" data-group="sensors">
             <div class="panel-heading"><span class="glyphicon glyphicon-eye-open"></span> Sensors</div>
             <div class="panel-body">
                 <div class="row">
@@ -61,8 +75,8 @@
             </div>
         </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> History</div>
+        <div class="panel panel-default" data-group="sensors">
+            <div class="panel-heading"><span class="glyphicon glyphicon-stats"></span> History</div>
             <div class="panel-body">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><a href="#history_temperature" data-toggle="tab">Temperature</a></li>
@@ -76,6 +90,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="panel panel-primary" data-group="ledmatrix" style="display:none;">
+            <div class="panel-heading"><span class="glyphicon glyphicon-lamp"></span> Settings</div>
+            <div class="panel-body">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-color="#FF0000">Red</a></li>
+                            <li><a href="#" data-color="#00FF00">Green</a></li>
+                            <li><a href="#" data-color="#0000FF">Blue</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Message" id="led_message">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="led_setmessage">Submit</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

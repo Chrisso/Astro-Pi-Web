@@ -64,6 +64,42 @@ function doSensorUpdate() {
 }
 
 $(document).ready(function () {
+    $("a[data-link=sensors").click(function (evt) {
+        evt.preventDefault();
+        $("a[data-link=ledmatrix").parent().removeClass("active");
+        $("a[data-link=sensors]").parent().addClass("active");
+        $("div[data-group=sensors").show();
+        $("div[data-group=ledmatrix").hide();
+    });
+    $("a[data-link=ledmatrix").click(function (evt) {
+        evt.preventDefault();
+        $("a[data-link=sensors").parent().removeClass("active");
+        $("a[data-link=ledmatrix]").parent().addClass("active");
+        $("div[data-group=ledmatrix").show();
+        $("div[data-group=sensors").hide();
+    });
+    $("a[data-color]").click(function (evt) {
+        evt.preventDefault();
+        var color = d3.rgb($(this).data("color"));
+        $("#led_message")
+            .data("color", color)
+            .css("color", color.darker().toString());
+
+    });
+    $("#led_setmessage").click(function () {
+        var params = { q: "message", v: $("#led_message").val(), ts: new Date().getTime() };
+        if (params.v.trim().length == 0)
+            return; // nothing to display
+        if ($("#led_message").data("color")) {
+            var c = $("#led_message").data("color");
+            params.r = c.r;
+            params.g = c.g;
+            params.b = c.b;
+        }
+        $.getJSON("services/json/ledmatrix.php", params, function () {
+            $("#led_message").val("");
+        });
+    });
     $.getJSON(
         "services/json/sensors.php",
         { q: "temperature", ts: new Date().getTime() },
