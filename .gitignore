@@ -3,7 +3,7 @@
 web/node_modules
 
 # local dat files
-web/data
+web/data/*.sqlite
 
 # =========================
 # Windows detritus

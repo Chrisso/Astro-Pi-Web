@@ -17,6 +17,8 @@ You will need:
 
 You may check job execution using `grep CRON /var/log/syslog`.
 
+To initialize an empty database go to `web/data` and run `make`.
+
 ## LED Matrix
 
 PHP also uses the python gateway but requires an additional wrapper to execute this as root. For security reasons the path to the python gateway is hardcoded in `astro-pi-cmd.c` via `make`. Just run:
